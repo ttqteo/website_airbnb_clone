@@ -1,0 +1,11 @@
+* {
+    padding: auto;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
