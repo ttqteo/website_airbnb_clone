@@ -1,0 +1,19 @@
+.covid-noti-wrapper {
+    height: 58px;
+    background: #222222;
+    display: flex;
+}
+
+.covid-noti-link {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #a3a3a3;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.covid-noti-link:hover {
+    color: #5e5c5c;
+}

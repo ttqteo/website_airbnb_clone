@@ -1,0 +1,31 @@
+header {
+    height: 64px;
+}
+
+.logo-header img {
+    width: 34px;
+    margin-left: 28px;
+    margin-top: 24px;
+}
+
+.content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-heading {
+    width: 1032px;
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 16px 0;
+}
+
+.content-sub-heading {
+    width: 680px;
+    font-size: 2.3rem;
+    font-weight: 400;
+    margin: 16px 0;
+}
