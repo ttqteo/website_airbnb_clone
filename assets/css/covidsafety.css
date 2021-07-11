@@ -1,7 +1,7 @@
 :root {
     --heading-color: #333;
     --text-color: #484848;
-    --link-color: #008489;
+    --link-color: rgb(0, 132, 137);
 }
 
 header {
@@ -40,8 +40,14 @@ header {
 .card-wrapper {
     display: block;
     margin-top: 80px;
-    cursor: pointer;
     text-decoration: none;
+    box-shadow: 0 0 5px rgba(66, 96, 97, 0);
+    transition: box-shadow ease-in 0.1s;
+
+}
+
+.card-wrapper:focus {
+    box-shadow: 0 0 5px rgba(0, 132, 137, 0.8);
 }
 
 .card-img {

@@ -65,18 +65,19 @@ var contents =  [
 },
 ];
 
-
-const cardHeading = document.getElementById('card').querySelectorAll('.card-heading span');
-cardHeading.forEach((card, index) => {
-    card.innerHTML = contents[0].cards[index].heading;
-})
-
-const cardDescription = document.getElementById('card').querySelectorAll('.card-description span');
-cardDescription.forEach((card, index) => {
-    card.innerHTML = contents[0].cards[index].description;
-})
-
-const cardImage = document.getElementById('card').querySelectorAll('img');
-cardImage.forEach((card, index) => {
-    card.outerHTML = `<img class="card-img" src="./assets/img/${contents[0].cards[index].image}" alt="">`;
-})
+const cardElements = document.getElementById('card');
+cardElements.innerHTML = contents[0].cards.map(card => {
+    return`
+    <a href="#" class="card-wrapper col c-6 m-6">
+        <img class="card-img" src="./assets/img/${card.image}" alt="${card.heading}">
+        <div class="card-text">
+            <div class="card-heading">
+                <span>${card.heading}</span>
+            </div>
+            <div class="card-description">
+                <span>${card.description}</span>
+            </div>
+            <span class="card-link">Tìm hiểu thêm</span>
+        </div>
+    </a>
+    `}).join('');
