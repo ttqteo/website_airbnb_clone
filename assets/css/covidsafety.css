@@ -33,49 +33,164 @@ header {
     color: var(--text-color);
 }
 
-#card {
+/* Content with card-4 */
+
+#card-4 {
+    width: 1032px;
+    margin: 0 auto;
     margin-bottom: 100px;
 }
 
-.card-wrapper {
+.card-4-wrapper {
     display: block;
     margin-top: 80px;
     text-decoration: none;
     box-shadow: 0 0 5px rgba(66, 96, 97, 0);
-    transition: box-shadow ease-in 0.1s;
+    transition: box-shadow ease-in 0.2s;
 
 }
 
-.card-wrapper:focus {
+.card-4-wrapper:focus {
     box-shadow: 0 0 5px rgba(0, 132, 137, 0.8);
 }
 
-.card-img {
+.card-4-img {
     width: 508px;
     border-radius: 5px;
 }
 
-.card-text {
+.card-4-text {
     text-align: left;
 }
 
-.card-heading {
+.card-4-heading {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--heading-color);
     margin-top: 16px;
 }
 
-.card-description {
+.card-4-description {
     font-size: 1.5rem;
     color: var(--text-color);
     margin-top: 8px;
 }
 
-.card-link {
+.card-4-link {
     display: block;
     font-size: 1.5rem;
     text-decoration: none;
     color: var(--link-color);
     margin-top: 8px;
+}
+
+/* Content with card-3 */
+
+#card-3 {
+    margin: 140px 0 100px;
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-3-img-wrapper {
+    display: flex;
+}
+
+.card-3-img {
+    height: 96px;
+    margin: 0;
+}
+
+.card-3-text {
+    text-align: left;
+    margin-top: 28px;
+}
+
+.card-3-heading {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.card-3-description {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    color: var(--text-color);
+    margin-top: 8px;
+}
+
+/* Button content */
+
+.card-1-btn {
+    display: flex;
+    margin: 80px 0;
+}
+
+.card-1-btn-text {
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    border: 2px solid var(--heading-color);
+    border-radius: 4px;
+    padding: 10px 22px;
+}
+
+.card-1-img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width: 1400px;
+    height: 600px;
+    margin-bottom: 140px;
+}
+
+/* Question */
+
+#question-wrap {
+    width: 1032px;
+    margin: 68px auto 160px;
+}
+
+.question-text {
+}
+
+.question-link {
+    text-align: left;
+    text-decoration: none;
+    color: var(--link-color);
+    display: block;
+    font-size: 1.9rem;
+    font-weight: 400;
+    border-bottom: 1px solid #ebebeb;
+    padding: 24px 0;
+}
+
+.question-link:hover {
+    text-decoration: underline 1px;
+}
+
+#policy-wrap {
+    width: 1032px;
+    margin: 68px auto 100px;
+    text-align: left;
+}
+
+.policy-text {
+    margin: 0;
+}
+
+.policy-name {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.policy-link {
+    display: block;
+    margin-top: 24px;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--text-color);
+    text-decoration: underline 1px;
 }

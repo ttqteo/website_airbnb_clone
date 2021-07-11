@@ -29,7 +29,7 @@ var contents =  [
 {
     heading: "Đảm bảo an toàn là trách nhiệm chung",
     description: "Chúng tôi đang yêu cầu cộng đồng Airbnb cam kết thực hiện các biện pháp bảo vệ sức khỏe và an toàn trong đại dịch COVID-19 mới nhất của chúng tôi.",
-    card: [
+    cards: [
         {
             heading: "Đeo khẩu trang",
             description: "Khách và Chủ nhà phải tuân thủ luật pháp và hướng dẫn của địa phương liên quan đến việc đeo khẩu trang khi tương tác.",
@@ -48,36 +48,77 @@ var contents =  [
     ]
 },
 {
-    heading: "Tiêu chuẩn cao hơn đối với mọi chỗ ở",
-    description: "Quy trình vệ sinh tăng cường 5 bước của chúng tôi có tham khảo ý kiến chuyên gia và có yêu cầu cao hơn so với quy trình vệ sinh cơ bản. Đây là một bước quan trọng trong việc giúp đảm bảo sự an toàn của cộng đồng.",
-},
-{
-    heading: "Không gian riêng, tránh xa nơi đông người",
-    description: "Nhà riêng. Nhận phòng không tiếp xúc. Không gian ngoài trời rộng rãi. Không gian thoáng đãng. Tìm kiếm chỗ ở có các tiện nghi quan trọng nhất đối với bạn.",
-},
-{
-    heading: "Giải đáp thắc mắc của bạn",
-    description: "",
-},
-{
-    heading: "Tài nguyên khác",
-    description: "",
+    cards: [
+        {
+            name: "Tìm hiểu các biện pháp bảo đảm an toàn",
+            image: "covid-08.jpg"
+        },
+        {
+            name: "Tìm hiểu thêm",
+            image: "covid-09.jpg"
+        },
+        {
+            name: "Khám phá những căn nhà riêng gần bạn",
+            image: "covid-10.jpg"
+        },
+    ]
 },
 ];
 
-const cardElements = document.getElementById('card');
-cardElements.innerHTML = contents[0].cards.map(card => {
+// Card-4
+const card4Elements = document.getElementById('card-4');
+card4Elements.innerHTML = contents[0].cards.map(card => {
     return`
-    <a href="#" class="card-wrapper col c-6 m-6">
-        <img class="card-img" src="./assets/img/${card.image}" alt="${card.heading}">
-        <div class="card-text">
-            <div class="card-heading">
-                <span>${card.heading}</span>
+    <div class="col c-6 m-6">
+        <a href="#" class="card-4-wrapper">
+            <img class="card-4-img" src="./assets/img/${card.image}" alt="${card.heading}">
+            <div class="card-4-text">
+                <div class="card-4-heading">
+                    <span>${card.heading}</span>
+                </div>
+                <div class="card-4-description">
+                    <span>${card.description}</span>
+                </div>
+                <span class="card-4-link">Tìm hiểu thêm</span>
             </div>
-            <div class="card-description">
-                <span>${card.description}</span>
+        </a>
+    </div>   
+    `
+}).join('');
+
+// Card-3
+const card3Elements = document.getElementById('card-3');
+card3Elements.innerHTML = contents[1].cards.map(card => {
+    return`
+    <div class="col c-4">
+        <div class="card-3-wrapper">
+            <div class="card-3-img-wrapper">
+                <img class="card-3-img" src="./assets/img/${card.image}" alt="${card.heading}">
             </div>
-            <span class="card-link">Tìm hiểu thêm</span>
+            <div class="card-3-text">
+                <div class="card-3-heading">
+                    <span>${card.heading}</span>
+                </div>
+                <div class="card-3-description">
+                    <span>${card.description}</span>
+                </div>
+            </div>
         </div>
-    </a>
-    `}).join('');
+    </div>
+    `
+}).join('');
+
+// Card 1
+const card1Elements = document.querySelectorAll('.card-1-btn-img');
+card1Elements.forEach((value, index) => {
+    const card = contents[2].cards[index]
+    value.innerHTML = `
+        <div class="card-1-btn">
+                <a href="#" class="card-1-btn-text">
+                    <span>${card.name}</span>
+                </a>
+            </div>
+            <div class="card-1-img" style="background-image: url(./assets/img/${card.image});"></div>
+        </div>
+        `;
+});
