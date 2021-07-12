@@ -69,7 +69,7 @@ var contents =  [
 const card4Elements = document.getElementById('card-4');
 card4Elements.innerHTML = contents[0].cards.map(card => {
     return`
-    <div class="col c-6 m-6">
+    <div class="col l-6 m-6 c-12">
         <a href="#" class="card-4-wrapper">
             <img class="card-4-img" src="./assets/img/${card.image}" alt="${card.heading}">
             <div class="card-4-text">
@@ -90,7 +90,7 @@ card4Elements.innerHTML = contents[0].cards.map(card => {
 const card3Elements = document.getElementById('card-3');
 card3Elements.innerHTML = contents[1].cards.map(card => {
     return`
-    <div class="col c-4">
+    <div class="col l-4 m-4 c-12">
         <div class="card-3-wrapper">
             <div class="card-3-img-wrapper">
                 <img class="card-3-img" src="./assets/img/${card.image}" alt="${card.heading}">
