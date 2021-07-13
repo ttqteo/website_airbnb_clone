@@ -1,19 +1,241 @@
-.covid-noti-wrapper {
+.covid-noti-wrap {
+    width: 100%;
     height: 58px;
     background: #222222;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .covid-noti-link {
     display: block;
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 500;
     color: #a3a3a3;
-    align-items: center;
-    justify-content: center;
-    text-decoration: underline;
 }
 
 .covid-noti-link:hover {
     color: #5e5c5c;
+}
+
+.header-img {
+    height: 790px;
+    background-size: cover;
+    position: relative;
+    background-position: bottom;
+}
+
+/* Navbar */
+
+.navbar {
+    position: absolute;
+    width: -webkit-fill-available;
+    margin: 0 80px;
+    background: transparent;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    color: #fff;
+    font-size: 2.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar-logo-img {
+    width: 40px;
+    height: 46px;
+    margin-right: 6px;
+}
+
+.navbar-exp {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.navbar-exp-link {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 0 12px 12px;
+}
+
+.navbar-exp-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    bottom: 0;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: 10px;
+    transition: transform ease-out 0.2s;
+    -webkit-transform: scaleX(0);
+    /* -webkit-transition: 0.2s -webkit-transform cubic-bezier(0, 0, 0.1, 1),0.2s transform cubic-bezier(0, 0, 0.1, 1); */
+
+}
+.navbar-exp-link:hover {
+    opacity: 0.6;
+}
+
+
+.navbar-exp-link:hover::after {
+    content: "";
+    display: block;
+    transform: scaleX(calc(4/18));
+    margin-left: -8px;
+}
+
+.navbar-exp-link.active {
+    opacity: unset;
+    cursor: default;
+}
+
+.navbar-exp-link.active::after {
+    content: "";
+    display: block;
+    transform: scaleX(1);
+    margin-left: -8px;
+}
+
+.navbar-user{
+    position: relative;
+    display: block;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-user-register {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 16px;
+    border-radius: 35px;
+}
+
+.navbar-user-register:hover,
+.navbar-user-language:hover{
+    background: rgba(238, 238, 238, 0.2);
+    cursor: pointer;
+}
+.navbar-user-language {
+    font-size: 1.4rem;
+    color: #fff;
+    margin: 0 12px 0 -8px;
+    padding: 16px;
+    border-radius: 35px;
+}
+
+.navbar-user-login {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 4px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.navbar-user-bar {
+    color: #555;
+    font-size: 1.4rem;
+    padding: 4px 6px 4px 10px;
+}
+
+.navbar-user-login-avatar {
+    width: 32px;
+    margin-left: 4px;
+}
+
+.navbar-user-list {
+    position: absolute;
+    width: 240px;
+    right: 0;
+    top: 92%;
+    list-style: none;
+    background: #fff;
+    padding-left: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    display: none;
+}
+
+.navbar-user.active~.navbar-user-list  {
+    display: block;
+    z-index: 9999;
+}
+
+.navbar-user-item:first-child .navbar-user-link{
+    font-weight: 600;
+    padding-top: 20px;
+}
+
+.navbar-user-item:nth-child(2) .navbar-user-link{
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 16px;
+}
+
+.navbar-user-item:nth-child(3) .navbar-user-link{
+    padding-top: 16px;
+}
+
+.navbar-user-item:last-child .navbar-user-link{
+    padding-bottom: 20px;
+}
+
+.navbar-user-link {
+    text-decoration: none;
+    display: block;
+    color:  #333;
+    font-size: 1.4rem;
+    padding: 12px 16px;
+    font-weight: 400;
+}
+
+.navbar-user-link:hover {
+    background: rgba(221, 221, 221, 0.3);
+}
+
+.nav-search-bar {
+    width: 852px;
+    height: 66px;
+    position: absolute;
+    margin: auto;
+    top: 100%;
+    right: 0;
+    left: 0;
+    border-radius: 40px;
+}
+
+.nav-search-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-search-text {
+    background-color: #fff;
+    padding: 14px 24px;
+}
+
+.nav-search-heading {
+    font-size: 1.3rem;
+}
+
+.nav-search-description {
+    font-size: 1.4rem;
+}
+
+.nav-search-btn {
+    color: #fff;
+    font-size: 2rem;
 }

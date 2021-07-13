@@ -12,17 +12,70 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- CSS -->
+    <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.3-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/general.css">
     <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
 </head>
 <body>
     
-    <div class="app">
+    <div class="app overlay">
+        <div class="covid-noti-wrap">
+            <a href="./covidsafety.html" target="popup" class="covid-noti-link">
+                 Nhận thông tin mới nhất về biện pháp ứng phó COVID-19 của chúng tôi
+            </a>
+        </div>
         <header>
-            <div class="covid-noti-wrapper">
-                <a href="./covidsafety.html" target="popup" class="covid-noti-link">
-                    Nhận thông tin mới nhất về biện pháp ứng phó COVID-19 của chúng tôi
-                </a>
+            <div class="header-img" style="background-image: url(./assets/img/home-01.webp);">
+                <div class="navbar">
+                    <a href="./index.html" class="navbar-logo">
+                        <img class="navbar-logo-img" src="./assets/img/logo-white.png" alt="">
+                        <span>airbnb</span>
+                    </a>
+                    <ul class="navbar-exp">
+                        <li><a href="#" class="navbar-exp-link active">Nơi ở</a></li>
+                        <li><a href="#" class="navbar-exp-link">Trải nghiệm</a></li>
+                        <li><a href="#" class="navbar-exp-link">Trải nghiệm trực tuyến</a></li>
+                    </ul>
+                    <a class="navbar-user">
+                        <div class="navbar-user-register"><span>Trở thành chủ nhà</span></div>
+                        <div class="navbar-user-language"><i class="fas fa-globe"></i></div>
+                        <div class="navbar-user-login">
+                            <div class="navbar-user-bar"><i class="fas fa-bars"></i></div>
+                            <img class="navbar-user-login-avatar" src="./assets/img/home-02-avatar.png" alt="">
+                        </div>
+                    </a>
+                    <ul class="navbar-user-list">
+                        <li class="navbar-user-item"><a class="navbar-user-link" href="#">Đăng ký</a></li>
+                        <li class="navbar-user-item"><a class="navbar-user-link" href="#">Đăng nhập</a></li>
+                        <li class="navbar-user-item"><a class="navbar-user-link" href="#">Cho thuê nhà</a></li>
+                        <li class="navbar-user-item"><a class="navbar-user-link" href="#">Tổ chức trách nhiệm</a></li>
+                        <li class="navbar-user-item"><a class="navbar-user-link" href="#">Trợ giúp</a></li>
+                    </ul>
+                    <div class="nav-search-bar">
+                        <div class="nav-search-wrap">
+                            <div class="nav-search-text">
+                                <h5 class="nav-search-heading">Địa điểm</h5>
+                                <p class="nav-search-description">Bạn sắp tới đâu</p>
+                            </div>
+                            <div class="nav-search-text">
+                                <h5 class="nav-search-heading">Nhận phòng</h5>
+                                <p class="nav-search-description">Thêm ngày</p>
+                            </div>
+                            <div class="nav-search-text">
+                                <h5 class="nav-search-heading">Trả phòng</h5>
+                                <p class="nav-search-description">Thêm ngày</p>
+                            </div>
+                            <div class="nav-search-text">
+                                <h5 class="nav-search-heading">Khách</h5>
+                                <p class="nav-search-description">Thêm khách</p>
+                            </div>
+                            <div class="nav-search-btn">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -34,5 +87,22 @@
 
         </footer>
     </div>    
+
+    <script>
+        const navbarUser = document.querySelector('.navbar-user');
+        navbarUser.onclick = function() {
+            console.log(navbarUser);
+            navbarUser.classList.toggle('active');
+        }
+        const navbarSearchLinkList = document.querySelectorAll('.navbar-search-link');
+        navbarSearchLinkList.forEach((navbarSearchLinkItem,index) => {
+            navbarSearchLinkItem.onclick = function(e) {
+                navbarSearchLinkList.forEach((navbarSearchLinkItem,index) => {
+                    navbarSearchLinkItem.classList.toggle('active', false);
+                });
+                e.target.classList.toggle('active');
+            }
+        });
+    </script>
 </body>
 </html>

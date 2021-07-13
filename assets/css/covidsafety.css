@@ -26,10 +26,12 @@ header {
     font-size: 5.4rem;
     font-weight: 800;
     color: var(--heading-color);
+    margin: auto;
 }
 
 .content-description {
     width: 680px;
+    margin: auto;
     margin-top: 40px;
     font-size: 2.4rem;
     line-height: 3rem;
@@ -125,8 +127,11 @@ header {
 
 /* Button content */
 
+.card-1-btn-img {
+    margin: auto;
+}
+
 .card-1-btn {
-    display: flex;
     margin: 80px 0;
 }
 
@@ -145,7 +150,7 @@ header {
     background-size: contain;
     max-width: 1400px;
     height: 600px;
-    margin-bottom: 140px;
+    margin: 0 auto 140px;
 }
 
 /* Question */
@@ -175,11 +180,6 @@ header {
     margin: 68px auto 100px;
     text-align: left;
 }
-
-#policy-wrap .col {
-    margin-top: 0;
-}
-
 .policy-text {
     margin: 0;
 }
@@ -206,11 +206,8 @@ footer {
 
 .footer-wrap {
     width: 1280px;
+    margin: auto;
     display: flex;
-}
-
-.footer-wrap .col {
-    margin-top: 0;
 }
 
 .footer-heading {
@@ -238,6 +235,7 @@ footer {
 
 .copyright-wrap {
     width: 1280px;
+    margin: auto;
     margin-top: 32px;
     border-top: 1px solid #ddd;
     display: flex;
@@ -246,9 +244,8 @@ footer {
 
 .copyright-list {
     display: flex;
+    align-items: center;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .copyright-item-left {
@@ -320,9 +317,6 @@ footer {
     }
     #card-4 {
         width: var(--tablet-width);
-    }
-    #card-4 .col {
-        margin: 0;
     }
     .card-4-wrapper {
         margin-top: 54px;
@@ -411,6 +405,7 @@ footer {
         display: flex;
         margin: 28px 20px 4px;
         justify-content: flex-start;
+        border-radius: 4px;
     }   
     .card-4-img {
         width: 76px;
