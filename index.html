@@ -67,14 +67,20 @@
                                 <p class="nav-search-description">Thêm ngày</p>
                             </div>
                             <div class="nav-search-text">
-                                <h5 class="nav-search-heading">Khách</h5>
-                                <p class="nav-search-description">Thêm khách</p>
-                            </div>
-                            <div class="nav-search-btn">
-                                <i class="fas fa-search"></i>
+                                <div>
+                                    <h5 class="nav-search-heading">Khách</h5>
+                                    <p class="nav-search-description">Thêm khách</p>
+                                </div>
+                                <div class="nav-search-btn">
+                                    <i class="fas fa-search"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="header-search">
+                    <div class="header-search-heading">Bạn chưa biết nên đi đâu? Tuyệt!</div>
+                    <a class="header-search-btn"><span class="gradient-text">Tìm kiếm linh hoạt</span></a>
                 </div>
             </div>
         </header>
@@ -89,12 +95,12 @@
     </div>    
 
     <script>
-        const navbarUser = document.querySelector('.navbar-user');
+        const navbarUser = document.querySelector('.navbar-user-login');
         navbarUser.onclick = function() {
-            console.log(navbarUser);
-            navbarUser.classList.toggle('active');
+            document.querySelector('.navbar-user').classList.toggle('active');
         }
-        const navbarSearchLinkList = document.querySelectorAll('.navbar-search-link');
+            
+        const navbarSearchLinkList = document.querySelectorAll('.navbar-exp-link');
         navbarSearchLinkList.forEach((navbarSearchLinkItem,index) => {
             navbarSearchLinkItem.onclick = function(e) {
                 navbarSearchLinkList.forEach((navbarSearchLinkItem,index) => {
