@@ -54,27 +54,89 @@
                     </ul>
                     <div class="nav-search-bar">
                         <div class="nav-search-wrap">
-                            <div class="nav-search-text">
+                            <div class="nav-search-text" style="flex-grow: 2;">
                                 <h5 class="nav-search-heading">Địa điểm</h5>
-                                <p class="nav-search-description">Bạn sắp tới đâu</p>
+                                <input class="nav-search-input" type="text" placeholder="Bạn sắp tới đâu">
                             </div>
-                            <div class="nav-search-text">
+                            <div class="nav-search-place-wrap disabled">
+                                <span class="nav-search-place-heading">MỌI LÚC, MỌI NƠI</span>
+                                <a class="nav-search-place-btn gradient-text">
+                                    <span>Tìm kiếm linh hoạt</span>
+                                    <i class="fas fa-angle-right"></i>
+                                </a>
+                            </div>
+                            <div class="nav-search-text " data-index="0" style="flex-grow: 1;">
                                 <h5 class="nav-search-heading">Nhận phòng</h5>
                                 <p class="nav-search-description">Thêm ngày</p>
                             </div>
-                            <div class="nav-search-text">
+                            <div class="nav-search-text" data-index="0" style="flex-grow: 1;">
                                 <h5 class="nav-search-heading">Trả phòng</h5>
                                 <p class="nav-search-description">Thêm ngày</p>
                             </div>
-                            <div class="nav-search-text">
-                                <div>
+                            <div class="nav-search-guest-wrap disabled">
+                                <div class="nav-search-guest-item">
+                                    <div class="nav-search-guest-text">
+                                        <h5 class="nav-search-guest-heading">Người lớn</h5>
+                                        <p class="nav-search-guest-description">Từ 13 tuổi trở lên</p>
+                                    </div>
+                                    <div class="nav-search-guest-btn">
+                                        <button class="nav-search-guest-minus">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <input class="nav-search-guest-value" value="0" name="16">
+                                        <button class="nav-search-guest-plus">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="nav-search-guest-item">
+                                    <div class="nav-search-guest-text">
+                                        <h5 class="nav-search-guest-heading">Trẻ em</h5>
+                                        <p class="nav-search-guest-description">Độ tuổi 2 - 12</p>
+                                    </div>
+                                    <div class="nav-search-guest-btn">
+                                        <button class="nav-search-guest-minus">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <input class="nav-search-guest-value" value="0" name="5">
+                                        <button class="nav-search-guest-plus">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="nav-search-guest-item">
+                                    <div class="nav-search-guest-text">
+                                        <h5 class="nav-search-guest-heading">Em bé</h5>
+                                        <p class="nav-search-guest-description">Dưới 2</p>
+                                    </div>
+                                    <div class="nav-search-guest-btn">
+                                        <button class="nav-search-guest-minus">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <input class="nav-search-guest-value" value="0" name="5">
+                                        <button class="nav-search-guest-plus">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-search-text" style="flex-grow: 1;">
+                                <div data-index="0">
                                     <h5 class="nav-search-heading">Khách</h5>
-                                    <p class="nav-search-description">Thêm khách</p>
+                                    <p class="nav-search-description nav-search-number-guest">Thêm khách</p>
+                                </div>
+                                <div class="disabled" data-index="1">
+                                    <h5 class="nav-search-heading">Ngày</h5>
+                                    <p class="nav-search-description">Thêm thời điểm bạn muốn tham gia</p>
                                 </div>
                                 <div class="nav-search-btn">
                                     <i class="fas fa-search"></i>
+                                    <span>Tìm kiếm</span>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -99,7 +161,7 @@
         navbarUser.onclick = function() {
             document.querySelector('.navbar-user').classList.toggle('active');
         }
-            
+
         const navbarSearchLinkList = document.querySelectorAll('.navbar-exp-link');
         navbarSearchLinkList.forEach((navbarSearchLinkItem,index) => {
             navbarSearchLinkItem.onclick = function(e) {
@@ -107,8 +169,57 @@
                     navbarSearchLinkItem.classList.toggle('active', false);
                 });
                 e.target.classList.toggle('active');
+                const navSearchList0 = document.querySelectorAll('[data-index="0"]');
+                const navSearchList1 = document.querySelectorAll('[data-index="1"]');
+                navSearchList0.forEach(list => { 
+                    list.classList.toggle('disabled');
+                });
+                navSearchList1.forEach(list => { 
+                    list.classList.toggle('disabled');
+                });
             }
         });
+
+        document.querySelector('.nav-search-bar').onclick = function() {
+            document.querySelector('.nav-search-btn').classList.toggle('active');
+        }
+
+        const btnGuest = document.querySelectorAll('.nav-search-guest-item .nav-search-guest-btn');
+        const numberGuest = document.querySelector('.nav-search-number-guest');
+        let sumGuest = 0;
+        
+        btnGuest.forEach(btn => {
+            let valueInput = btn.querySelector('input').value;
+            const valueMax = Number(btn.querySelector('input').name);
+            
+            btn.querySelector('.nav-search-guest-minus').toggleAttribute('disabled', valueInput === '0');
+            btn.querySelector('.nav-search-guest-plus').onclick = function() {
+                valueInput++;
+                sumGuest++;
+                numberGuest.classList.toggle('active', true);
+                numberGuest.innerHTML = `${sumGuest} Khách`;
+
+                if (valueInput === valueMax) {
+                    btn.querySelector('.nav-search-guest-plus').toggleAttribute('disabled', true);
+                }
+                btn.querySelector('input').value = valueInput;
+                btn.querySelector('.nav-search-guest-minus').toggleAttribute('disabled', false);
+            }
+            btn.querySelector('.nav-search-guest-minus').onclick = function() {
+                valueInput--;
+                sumGuest--;
+                if (sumGuest === 0){
+                    numberGuest.innerHTML = "Thêm khách";
+                    numberGuest.classList.toggle('active', false);
+                } 
+                else
+                    numberGuest.innerHTML = `${sumGuest} Khách`;
+                btn.querySelector('input').value = valueInput;
+                btn.querySelector('.nav-search-guest-minus').toggleAttribute('disabled', valueInput === 0);
+                btn.querySelector('.nav-search-guest-plus').toggleAttribute('disabled', valueInput === valueMax);
+            }
+            
+        })
     </script>
 </body>
 </html>
