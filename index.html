@@ -65,13 +65,74 @@
                                     <i class="fas fa-angle-right"></i>
                                 </a>
                             </div>
-                            <div class="nav-search-text " data-index="0" style="flex-grow: 1;">
+                            <div class="nav-search-text" data-index="0" style="flex-grow: 1;">
                                 <h5 class="nav-search-heading">Nhận phòng</h5>
                                 <p class="nav-search-description">Thêm ngày</p>
                             </div>
                             <div class="nav-search-text" data-index="0" style="flex-grow: 1;">
                                 <h5 class="nav-search-heading">Trả phòng</h5>
                                 <p class="nav-search-description">Thêm ngày</p>
+                            </div>
+                            <div class="nav-search-text disabled" data-index="2" style="flex-grow: 2;">
+                                <h5 class="nav-search-heading ">Ngày linh hoạt</h5>
+                                <p class="nav-search-description">Chọn bên dưới</p>
+                            </div>
+                            <div class="nav-search-date-wrap disabled">
+                                <div class="nav-search-option">
+                                    <div class="nav-search-option-text active">Lịch</div>
+                                    <div class="nav-search-option-text">Ngày linh hoạt</div>
+                                </div>
+                                <div class="nav-search-calendar">
+                                    <input type="date">
+                                    <p>Tính năng đầy đủ lịch đang phát triển.</p>
+                                </div>
+                                <div class="nav-search-flexible disabled">
+                                    <p class="nav-search-flexible-how-long-heading">Bạn muốn ở trong bao lâu?</p>
+                                    <div class="nav-search-flexible-how-long">
+                                        <input class="checked" type="button" name="how-long" value="Cuối tuần">
+                                        <input type="button" name="how-long" value="1 tuần">
+                                        <input type="button" name="how-long" value="1 tháng">
+                                    </div>
+                                    <p class="nav-search-flexible-when-heading">Bạn muốn đi khi nào?</p>
+                                    <div class="nav-search-flexible-when">
+                                        <div class="nav-search-flexible-when-month checked">
+                                            <div class="nav-search-flexible-when-month-icon">
+                                                <i class="far fa-calendar-check"></i>
+                                            </div>
+                                            <span>Tháng 7</span>
+                                        </div>
+                                        <div class="nav-search-flexible-when-month">
+                                            <div class="nav-search-flexible-when-month-icon">
+                                                <i class="far fa-calendar"></i>
+                                            </div>
+                                            <span>Tháng 8</span>
+                                        </div>
+                                        <div class="nav-search-flexible-when-month">
+                                            <div class="nav-search-flexible-when-month-icon">
+                                                <i class="far fa-calendar"></i>
+                                            </div>
+                                            <span>Tháng 9</span>
+                                        </div>
+                                        <div class="nav-search-flexible-when-month">
+                                            <div class="nav-search-flexible-when-month-icon">
+                                                <i class="far fa-calendar"></i>
+                                            </div>
+                                            <span>Tháng 10</span>
+                                        </div>
+                                        <div class="nav-search-flexible-when-month">
+                                            <div class="nav-search-flexible-when-month-icon">
+                                                <i class="far fa-calendar"></i>
+                                            </div>
+                                            <span>Tháng 11</span>
+                                        </div>
+                                        <div class="nav-search-flexible-when-month">
+                                            <div class="nav-search-flexible-when-month-icon">
+                                                <i class="far fa-calendar"></i>
+                                            </div>
+                                            <span>Tháng 12</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="nav-search-guest-wrap disabled">
                                 <div class="nav-search-guest-item">
@@ -163,25 +224,24 @@
         }
 
         const navbarSearchLinkList = document.querySelectorAll('.navbar-exp-link');
+        const navSearchList0 = document.querySelectorAll('.nav-search-text[data-index="0"]');
+        const navSearchList1 = document.querySelector('.nav-search-text[data-index="1"]');
+        const navSearchList2 = document.querySelector('.nav-search-text[data-index="2"]');
         navbarSearchLinkList.forEach((navbarSearchLinkItem,index) => {
             navbarSearchLinkItem.onclick = function(e) {
                 navbarSearchLinkList.forEach((navbarSearchLinkItem,index) => {
                     navbarSearchLinkItem.classList.toggle('active', false);
                 });
                 e.target.classList.toggle('active');
-                const navSearchList0 = document.querySelectorAll('[data-index="0"]');
-                const navSearchList1 = document.querySelectorAll('[data-index="1"]');
                 navSearchList0.forEach(list => { 
                     list.classList.toggle('disabled');
                 });
-                navSearchList1.forEach(list => { 
-                    list.classList.toggle('disabled');
-                });
+                navSearchList1.classList.toggle('disabled');
             }
         });
 
         document.querySelector('.nav-search-bar').onclick = function() {
-            document.querySelector('.nav-search-btn').classList.toggle('active');
+            document.querySelector('.nav-search-btn').classList.toggle('active', true);
         }
 
         const btnGuest = document.querySelectorAll('.nav-search-guest-item .nav-search-guest-btn');
@@ -218,7 +278,72 @@
                 btn.querySelector('.nav-search-guest-minus').toggleAttribute('disabled', valueInput === 0);
                 btn.querySelector('.nav-search-guest-plus').toggleAttribute('disabled', valueInput === valueMax);
             }
-            
+        })
+
+        const howLongBtn = document.querySelectorAll('.nav-search-flexible-how-long input');
+        howLongBtn.forEach(btn => {
+            btn.onclick = function() {
+                howLongBtn.forEach(btn => {
+                    btn.classList.toggle('checked', false);
+                })
+                btn.classList.toggle('checked', true);
+            }
+        });
+        const whenBtn = document.querySelectorAll('.nav-search-flexible-when-month');
+        const numWhenBtn = document.querySelectorAll('.nav-search-flexible-when-month.checked');
+        let numWhenBtnLength = 1;
+        whenBtn.forEach((btn, index) => {
+            btn.onclick = function() {
+                let check = btn.classList.contains('checked');
+                check = !check;
+                if (check){
+                    btn.classList.toggle('checked', check);
+                    btn.querySelector('.nav-search-flexible-when-month-icon').innerHTML = '<i class="far fa-calendar-check"></i>';
+                    numWhenBtnLength++;
+                }
+                if (!check && numWhenBtnLength > 1){
+                    btn.classList.toggle('checked', check);
+                    btn.querySelector('.nav-search-flexible-when-month-icon').innerHTML = '<i class="far fa-calendar"></i>';
+                    numWhenBtnLength--;
+                }
+            }
+        })
+
+        const optionTextBtn = document.querySelectorAll('.nav-search-option-text');
+        optionTextBtn.forEach((btn,index) => {
+            btn.onclick = function() {
+                optionTextBtn.forEach(btn => {
+                    btn.classList.toggle('active', false);
+                })
+                btn.classList.toggle('active');
+                document.querySelector('.nav-search-flexible').classList.toggle('disabled', index === 0);
+                document.querySelector('.nav-search-calendar').classList.toggle('disabled', index === 1);
+                if (index === 1) {
+                    navSearchList0.forEach(list => list.classList.toggle('disabled'));
+                    navSearchList2.classList.toggle('disabled');
+                }
+            }
+        });
+
+        const navBar = document.querySelectorAll('.nav-search-text');
+        navBar.forEach((bar, index) => {
+            bar.onclick = function() {
+                switch (index) {
+                    case 0:
+                        document.querySelector('.nav-search-place-wrap').classList.toggle('disabled');
+                        break;
+                    case 1:
+                    case 2:
+                    case 3:
+                        document.querySelector('.nav-search-date-wrap').classList.toggle('disabled');
+                        break;
+                    case 4:
+                        document.querySelector('.nav-search-guest-wrap').classList.toggle('disabled');
+                        break;
+                    default:
+                        break;
+                }
+            }
         })
     </script>
 </body>

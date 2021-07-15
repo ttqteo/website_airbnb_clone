@@ -1,3 +1,5 @@
 1. Bấm vào Nav User Login và tắt mới được, chưa tạo được lớp layout
 để bấm chỗ nào cũng tắt được 
 2. Nút tìm kiếm khi click bên ngoài sẽ trở về như ban đầu
+3. Lịch
+4. Sửa chữ của Lịch linh hoạt

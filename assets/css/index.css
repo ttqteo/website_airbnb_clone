@@ -367,6 +367,153 @@
     width: 400px;
 }
 
+/* Search date */
+
+.nav-search-date-wrap {
+    position: absolute;
+    top: 125%;
+    right: 0;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-search-date-wrap.disabled {
+    display: none;
+}
+
+.nav-search-option {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    background: #eee;
+    border-radius: 28px;
+}
+
+.nav-search-option-text {
+    padding: 8px 20px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.nav-search-option-text.active {
+    background: #fff;
+    padding: 8px 16px;
+    margin: 4px;
+    border-radius: 28px;
+    cursor: default;
+}
+
+.nav-search-option-text:hover{
+    background: rgba(255, 255, 255, 0.6);
+    padding: 8px 16px;
+    margin: 4px;
+    border-radius: 28px;
+    cursor: pointer;
+}
+
+.nav-search-calendar {
+    margin: 16px auto 44px;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-search-calendar.disabled {
+    display: none;
+}
+
+.nav-search-calendar p{
+    font-size: 1.6rem;
+    margin-top: 16px;
+}
+
+.nav-search-flexible {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.nav-search-flexible.disabled {
+    display: none;
+}
+
+.nav-search-flexible p {
+    font-size: 1.6rem;
+    margin: 16px auto;
+}
+
+.nav-search-flexible-how-long {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-search-flexible-how-long input {
+    padding: 8px 20px;
+    margin: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #aaa;
+    background: #fff;
+}
+
+.nav-search-flexible-how-long input:hover {
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.nav-search-flexible-how-long:hover .checked {
+    border: 2px solid #333;
+}
+
+.nav-search-flexible-how-long .checked {
+    border: 2px solid #333;
+    background: #eee;
+}
+
+.nav-search-flexible-when {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-search-flexible-when-month {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    width: 113px;
+    height: 122px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px 8px 40px;
+}
+
+.nav-search-flexible-when-month:hover {
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.nav-search-flexible-when-month.checked {
+    border: 2px solid #333;
+    background: #eee;
+}
+
+.nav-search-flexible-when-month.checked i {
+    color: #333;
+}
+
+.nav-search-flexible-when-month-icon {
+    font-size: 4rem;
+    color: #888;
+    padding: 20px 0 16px;
+}
+
+.nav-search-flexible-when-month span {
+    font-size: 1.6rem;
+}
+
 /* Search guest */
 
 .nav-search-guest-wrap {
