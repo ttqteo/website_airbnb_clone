@@ -7,3 +7,4 @@ Not OK:
 3. Lịch
 5. responsive 
 6. thay địa điểm ở trải nghiệm bằng logo lân cận
+7. nhập enter ở input để nhận giá trị

@@ -1,7 +1,68 @@
 
 /* Tablet */
 @media (max-width: 1113px) {
+    /* Header */
+
+    .navbar{
+        padding: 16px 40px;
+    }
+
+    .navbar-exp {
+        margin-left: 0;
+    }
+
+    .navbar-user-register {
+        display: none;
+    }
+    .navbar-user-language {
+        display: none;
+    }
+
+    .nav-search-bar {
+        max-width: 720px;
+    }
+    .navbar.activeSearch .nav-search-bar {
+        max-width: 720px;
+    }
+
+
+    /* Container */
+    .content-wrap {
+        padding: 0 40px;
+    }
+
+    #recent.content-wrap  {
+        margin-bottom: 32px;
+    }
+
+    #recent .col:nth-child(6),
+    #recent .col:nth-child(7){
+        display: none;
+    }
+
+    .anywhere-wrap {
+        margin-top: 20px;
+    }
     
+    .poster-text {
+        padding: 0 40px;
+    }
+
+    .poster-heading {
+        font-size: 3rem;
+        margin-bottom: 4px;
+    }
+
+    .poster-description {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+    }    
+
+    .poster-btn {
+        padding: 8px 16px;
+        font-size: 1.4rem;
+    }
+
     /* Footer */
     .footer-wrap {
         width: 800px;
@@ -37,6 +98,73 @@
 
 /* PC medium resolution > */
 @media (max-width: 740px) {
+    /* Header */
+
+    .navbar{
+        padding: 16px 16px;
+    }
+
+    .navbar-logo {
+        display: none;
+    }
+    .navbar-user-login{
+        display: none;
+    }
+
+    .nav-search-bar {
+        top: 20%;
+        max-width: 80%;
+    }
+
+    .navbar.active .nav-search-bar {
+        max-width: 90%;
+    }
+
+    .nav-search-header-heading {
+        font-size: 1.8rem;
+    }
+
+    .nav-search-header-wrap {
+        max-width: 100%;
+    }
+
+    .navbar-exp-link{
+        display: none;
+    }
+
+    /* Container */
+
+    .content-wrap {
+        padding: 0 16px;
+    }
+
+    #recent.content-wrap  {
+        margin-bottom: 0;
+    }
+
+    #recent .col:nth-child(4),
+    #recent .col:nth-child(5){
+        display: none;
+    }
+
+    .explore-wrap {
+        display: flex;
+        margin-bottom: 8px;
+    }
+
+    .explore-img {
+        width: 35%;
+    }
+    .explore-text {
+        margin-top: 8px;
+        margin-left: 16px;
+    }
+    .explore-heading {
+        font-size: 2.4rem;
+    }
+    .explore-description {
+        font-size: 1.6rem;
+    }
 
     /* Footer */
     .footer-wrap {
