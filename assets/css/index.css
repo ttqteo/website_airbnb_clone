@@ -6,10 +6,6 @@
     --mobile-width: 500px;
 }
 
-.app {
-    height: 1500px;
-}
-
 .disabled {
     display: none;
 }
@@ -851,4 +847,110 @@
     background-image: linear-gradient(0.25turn,#70019c, #ad0186);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* Footer */
+
+footer {
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd;
+}
+
+.footer-wrap {
+    width: 100%;
+    padding: 0 80px;
+    margin: auto;
+    display: flex;
+}
+
+.footer-heading {
+    margin-top: 54px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--heading-color);
+}
+
+.footer-link {
+    display: block;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-top: 24px;
+}
+
+.footer-link:hover {
+    color: #ddd;
+    text-decoration: underline 1px;
+}
+
+/* Copyright */
+
+.copyright-wrap {
+    width: 1280px;
+    margin: auto;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+.copyright-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.copyright-item-left {
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 20px 0;
+}
+
+.copyright-item-left a {
+    text-decoration: none;
+    color: #000;
+}
+
+.copyright-item-left a:hover {
+    text-decoration: underline 1px;
+}
+
+.copyright-item-left span {
+    padding: 0 8px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.copyright-item a {
+    text-decoration: none;
+}
+
+.copyright-item-right {
+    color: var(--heading-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding-left: 24px;
+}
+
+.copyright-item-right a {
+    color: #000;
+}
+
+.copyright-item-right i {
+    padding-right: 4px;
+}
+
+.copyright-item-social:hover,
+.copyright-item-right:hover {
+    filter: brightness(1.5);
+}
+
+.copyright-item-social {
+    display: inline-block;
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    padding-left: 20px;
+    text-decoration: none;
 }

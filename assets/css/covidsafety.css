@@ -237,6 +237,7 @@ footer {
     width: 1280px;
     margin: auto;
     margin-top: 32px;
+    margin-bottom: 16px;
     border-top: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
@@ -358,6 +359,7 @@ footer {
     .policy-link {
         margin-top: 44px;
     }
+    /* Footer */
     .footer-wrap {
         width: 800px;
         flex-direction: row;
@@ -448,6 +450,7 @@ footer {
     .policy-text {
         margin: 20px 0;
     }
+    /* Footer */
     .footer-wrap {
         width: unset;
         margin: 0 20px;
