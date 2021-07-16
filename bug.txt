@@ -1,5 +1,9 @@
 1. Bấm vào Nav User Login và tắt mới được, chưa tạo được lớp layout
 để bấm chỗ nào cũng tắt được --> OK
 2. Nút tìm kiếm khi click bên ngoài sẽ trở về như ban đầu --> OK
-3. Lịch
 4. Sửa chữ của Lịch linh hoạt --> OK
+
+Not OK:
+3. Lịch
+5. responsive 
+6. thay địa điểm ở trải nghiệm bằng logo lân cận

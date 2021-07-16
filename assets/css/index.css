@@ -1,7 +1,7 @@
 :root {
     --heading-color: #333;
     --text-color: #484848;
-    --pc-width: 1032px;
+    --pc-width: 1760px;
     --tablet-width: 696px;
     --mobile-width: 500px;
 }
@@ -41,12 +41,15 @@
 
 /* Navbar */
 
-
+.app {
+    width: -webkit-fill-available;
+    position: relative;
+}
 
 .overlay {
     position: fixed;
     height: 100%;
-    width: 100%;
+    width: -webkit-fill-available;
     background-color: rgba(0,0,0,0.4);
     z-index: 1;
 }
@@ -59,7 +62,10 @@
 .navbar {
     position: fixed;
     top: 58px;
-    width: -webkit-fill-available;
+    left: 0;
+    right: 0;
+    max-width: var(--pc-width);
+    margin: 0 auto;
     padding: 16px 80px;
     background: transparent;
     height: 80px;
@@ -70,13 +76,37 @@
     transition: top ease-out 0.1s, background ease-out 0.1s;
 }
 
-.navbar.active {
-    background: #fff;
-    width: -webkit-fill-available;
+
+.navbar::after {
+    content: '';
+    height: 80px;
+    background: rgba(255, 255, 255, 0);
+    position: fixed;
+    top: 56px;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    transition: top ease-out 0.1s, background ease-out 0.1s;
 }
 
-.navbar.activeSearch {
+.navbar.active {
+    /* background: #fff; */
+    /* width: -webkit-fill-available; */
+}
+
+.navbar.active::after {
+    background: rgba(255, 255, 255, 1);
+    top: 0;
+}
+
+.navbar.activeSearch::after {
+    content: '';
     height: 180px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .navbar.active .navbar-logo{
@@ -847,6 +877,169 @@
     background-image: linear-gradient(0.25turn,#70019c, #ad0186);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* Container */
+
+.content-wrap {
+    max-width: var(--pc-width);
+    margin: 32px auto 52px;
+    padding: 0 80px;
+}
+
+.content-text {
+    margin-bottom: 32px;
+}
+
+.content-heading {
+    font-size: 3.4rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+.content-description {
+    font-size: 2.6rem;
+    font-weight: 400;
+
+}
+
+.recent-place-wrap {
+    display: flex;
+    padding-bottom: 16px;
+}
+
+.recent-place-wrap:hover {
+    cursor: pointer;
+}
+
+.recent-place-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+}
+
+.recent-place-text {
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recent-place-heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+.recent-place-description {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+/* Anywhere */
+
+.anywhere-wrap {
+    cursor: pointer;
+}
+
+.anywhere-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.anywhere-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+/* Explore */
+
+.explore-wrap {
+    cursor: pointer;
+}
+
+.explore-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.explore-text {
+
+}
+
+.explore-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 4px;
+}
+
+.explore-description {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.poster-wrap {
+    position: relative;
+    cursor: pointer;
+}
+
+.poster-img {
+    border-radius: 16px;
+    width: 100%;
+}
+
+.poster-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 554px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 80px;
+}
+
+.poster-heading {
+    font-size: 4.6rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 16px;
+}
+
+.poster-heading.white,
+.poster-description.white {
+    color: #fff;
+}
+
+.poster-description {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-bottom: 44px;
+}
+
+.poster-btn {
+    font-size: 1.6rem;
+    font-weight: 600;
+    background-color: #000;
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.poster-btn.white {
+    background-color: #fff;
+    color: #000;
 }
 
 /* Footer */
