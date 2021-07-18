@@ -297,8 +297,10 @@ function checkScrollNavBar() {
         } else {
             $('.navbar').style.top = 58 - window.scrollY + 'px';
             $('.navbar').classList.toggle('active', false);
+            // Navbar Search Mobile
+            $('.nav-search-header-wrap').classList.toggle('disabled', false);
+            $('.nav-search-header-mobile-wrap').classList.toggle('disabled', true);
         }
-
     } else {
         if (window.scrollY > 58){
             $('.navbar').style.top = '0';
@@ -325,7 +327,7 @@ document.onscroll = function() {
 $('.nav-search-header-wrap').onclick = function() {
     if (window.innerWidth < 741) {
         if (window.scrollY < 58){
-            window.scrollTo(0, 59)
+            window.scrollTo(0, 59);
         }
         $('.nav-search-header-wrap').classList.toggle('disabled', true);
         $('.navbar').classList.toggle('activeMobile', true);

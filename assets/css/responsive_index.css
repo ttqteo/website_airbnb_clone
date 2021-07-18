@@ -11,6 +11,10 @@
         margin-left: 0;
     }
 
+    .navbar-user-list {
+        right: 40px;
+    }
+
     .navbar-user-register {
         display: none;
     }
@@ -44,17 +48,21 @@
         margin-top: 20px;
     }
     
+    .poster-img {
+        height: 362px;
+    }
     .poster-text {
         padding: 0 40px;
+        width: 45%;
     }
 
     .poster-heading {
-        font-size: 3rem;
-        margin-bottom: 4px;
+        font-size: 3.6rem;
+        margin-bottom: 8px;
     }
 
     .poster-description {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         margin-bottom: 30px;
     }    
 
@@ -65,7 +73,6 @@
 
     /* Footer */
     .footer-wrap {
-        width: 800px;
         padding: 0 40px;
         flex-direction: row;
         flex-wrap: wrap;
@@ -138,6 +145,10 @@
         padding: 0 16px;
     }
 
+    .content-text {
+        text-align: center;
+    }
+
     #recent.content-wrap  {
         margin-bottom: 0;
     }
@@ -166,10 +177,41 @@
         font-size: 1.6rem;
     }
 
+    .poster-text {
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        padding-top: 24px;
+        max-width: unset;
+        text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+        text-align: center;
+        /* background-color: rgba(255, 255, 255, 0.5); */
+    }
+
+    .poster-img  {
+        height: 500px;
+        background-position: -50px center;
+    }
+    
+    .poster-text.white {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding-bottom: 24px;
+        border-radius: 16px;
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .poster-img.white {
+        background-position: -300px center;
+    }
+    .poster-btn {
+        padding: 16px 24px;
+        font-size: 1.6rem;
+    }
+
+
     /* Footer */
     .footer-wrap {
-        /* width: unset; */
-        margin: 0 20px;
+        padding: 0 16px;
     }
     .footer-wrap .col {
         padding-bottom: 20px;
@@ -187,10 +229,10 @@
         margin-top: unset;
         margin-bottom: 20px;
         align-items: flex-start;
+        padding: 0 16px;
     }
     .copyright-list {
         align-items: flex-start;
-        margin: 0 20px;
     }
     .copyright-item-left {
         margin: 0;
