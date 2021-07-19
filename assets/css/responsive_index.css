@@ -78,7 +78,7 @@
         flex-wrap: wrap;
     }
     .copyright-wrap {
-        width: var(--tablet-width);
+        /* width: var(--tablet-width); */
         flex-direction: column-reverse;
         align-items: center
     }

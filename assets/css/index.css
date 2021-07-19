@@ -1191,7 +1191,7 @@ footer {
 /* Copyright */
 
 .copyright-wrap {
-    width: 1280px;
+    width: 100%;
     margin: auto;
     margin-top: 32px;
     margin-bottom: 16px;
