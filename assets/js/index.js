@@ -75,6 +75,148 @@ $$('.nav-search-calendar input').forEach((calendar, index) => {
     }
 })
 
+// Xuất lịch
+
+// Check Leap Year
+
+isLeapYear = (year) => {
+    return (year % 4 === 0 && year % 100 !== 0 && year % 400 !==0) || (year % 100 === 0 && year % 400 ===0);
+}
+
+getFebDays = (year) => {
+    return isLeapYear(year) ? 29 : 28;
+}
+
+let calendar = document.querySelector('.calendar');
+
+// Generate Calendar
+
+let activeDate;
+let activeDay = [];
+
+generateCalendar = (month, year) => {
+    let calendarDays = document.querySelector('.calendar-days');
+    let daysOfMonth = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    calendarDays.innerHTML = '';
+    let currDate = new Date();
+
+    document.querySelector('#month').innerHTML = `tháng ${++month}`;
+    document.querySelector('#year').innerHTML = `năm ${year}`;
+
+    --month;
+    let firstDate = new Date(year, month, 1);
+    let firstDay = firstDate.getDay();
+
+    for(let i = 1; i <= daysOfMonth[month] + firstDay - 1; i++) {
+        let day = document.createElement('div');
+        day.classList.add('disabled');
+        if (firstDay === 0) {
+            firstDay = 7;
+        } else
+        if (i >= firstDay) {
+            day.innerHTML = i - firstDay + 1;
+            if (year > currDate.getFullYear()) {
+                day.classList.remove('disabled');
+            }
+            if (year >= currDate.getFullYear() &&  month > currDate.getMonth()) {
+                day.classList.remove('disabled');
+            }
+            if (i - firstDay + 1 >= currDate.getDate() && year >= currDate.getFullYear() &&  month >= currDate.getMonth()) {
+                day.classList.remove('disabled');
+            }
+            if (activeDay !== undefined){
+                activeDay.forEach(dayActive => {
+                    if (i - firstDay + 1 === dayActive.date && year === dayActive.year &&  month === dayActive.month) {
+                        day.classList.toggle('active', true);
+                    }
+                })
+            }
+        }
+        calendarDays.appendChild(day);
+    }
+}
+
+let currDate = new Date();
+let currMonth = currDate.getMonth();
+let currYear = currDate.getFullYear();
+
+generateCalendar(currMonth, currYear);
+
+// Hit prev-next button
+
+const prevMonth = document.querySelector('#prev-month');
+const nextMonth = document.querySelector('#next-month');
+
+function checkActive () {
+    activeDate = $$('.calendar-days .active');
+    if (activeDate !== null) {
+        activeDate.forEach(date => {
+            let active = {
+                'date': parseInt(date.innerHTML),
+                'month': currMonth,
+                'year': currYear
+            }
+            if (activeDay.length === 2){
+                Object.assign(activeDay[1], active);
+            }
+            else activeDay.push(active);
+        })
+        console.log(activeDay)
+    }
+}
+
+prevMonth.onclick = function () {
+    if (currMonth < 1) {
+        currMonth = 12;
+        --currYear;
+    } else {
+        --currMonth;
+    }
+    generateCalendar(currMonth, currYear);
+}
+
+nextMonth.onclick = function () {
+    if (currMonth > 12) {
+        currMonth = 1;
+        ++currYear;
+    } else {
+        ++currMonth;
+    }
+    generateCalendar(currMonth, currYear);
+}
+
+let checkOutRoom;
+
+$('.nav-search-calendar').onclick = function (e) {
+    if (e.target.closest('.calendar-body')) {
+        if (!e.target.classList.contains('disabled')) {
+            e.target.classList.toggle('active');
+            checkActive();
+            navDate[0].querySelector('.nav-search-description').innerHTML = `${e.target.innerHTML} ${$('#month').innerHTML}`;
+            navDate[0].querySelector('.nav-search-description').style.fontWeight = '700';
+            navDate[0].classList.toggle('active');
+            navDate[1].classList.toggle('active');
+            $('.nav-search-calendar').onclick = function (e) {
+                if (e.target.closest('.calendar-body')) {
+                    if (!e.target.classList.contains('disabled')) {
+                        if (!e.target.classList.contains('active')) {
+                            if (checkOutRoom !== e.target && checkOutRoom !== undefined) {
+                                checkOutRoom.classList.toggle('active', false);
+                            }
+                            e.target.classList.toggle('active');
+                            checkActive();
+                            checkOutRoom = e.target;
+                            navDate[1].querySelector('.nav-search-description').innerHTML = `${e.target.innerHTML} ${$('#month').innerHTML}`;
+                            navDate[1].querySelector('.nav-search-description').style.fontWeight = '700';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 // Xuất ngày của ngày linh hoạt
 function renderFlexDate() {
     const howLong = $('.nav-search-flexible-how-long input.checked');

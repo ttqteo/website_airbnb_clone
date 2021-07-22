@@ -1,0 +1,85 @@
+.calendar {
+    height: max-content;
+    width: max-content;
+    background:#fff;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.calendar-body {
+    padding: 10px;
+}
+
+.calendar-week-day {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-week-day div{
+    display: grid;
+    place-items: center;
+    color: #666;
+    height: 50px;
+    font-size: 1.6rem;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    font-size: 1.6rem;
+}
+
+.calendar-days div {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.calendar-days div:hover {
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.calendar-days .disabled{
+    color: #ddd;
+    cursor:default;
+}
+
+.calendar-days .active {
+    color: #fff;
+    background: #000;
+    border-radius: 50%;
+}
+
+.calendar-days div:hover.disabled {
+    border: none;
+}
+
+.month-change {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+.month-change:hover {
+    background-color: #eee;
+}

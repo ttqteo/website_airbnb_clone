@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/responsive_index.css">
+    <link rel="stylesheet" href="./assets/css/calendar.css">
 </head>
 <body>
     
@@ -119,8 +120,35 @@
                                         <div class="nav-search-option-text">Ngày linh hoạt</div>
                                     </div>
                                     <div class="nav-search-calendar">
-                                        <input type="date" name="come-in">
-                                        <input type="date" name="come-out">
+                                        <div class="calendar">
+                                            <div class="calendar-header">
+                                                <span class="month-change" id="prev-month">
+                                                    <pre><</pre>
+                                                </span>
+                                                <div>
+                                                    <span id="month"></span>
+                                                    <span id="year"></span>
+                                                </div>
+                                                <span class="month-change" id="next-month">
+                                                    <pre>></pre>
+                                                </span>
+                                            </div>
+                                            <div class="calendar-body">
+                                                <div class="calendar-week-day">
+                                                    <div>T2</div>
+                                                    <div>T3</div>
+                                                    <div>T4</div>
+                                                    <div>T5</div>
+                                                    <div>T6</div>
+                                                    <div>T7</div>
+                                                    <div>CN</div>
+                                                </div>
+                                                <div class="calendar-days">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <input type="date" name="come-in"> -->
+                                        <!-- <input type="date" name="come-out"> -->
                                     </div>
                                     <div class="nav-search-flexible disabled">
                                         <p class="nav-search-flexible-how-long-heading">Bạn muốn ở trong bao lâu?</p>
@@ -594,5 +622,6 @@
     </div>    
 
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/calendar.js"></script>
 </body>
 </html>
