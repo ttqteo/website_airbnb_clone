@@ -68,12 +68,6 @@ navPlace.forEach(place => {
 
 // Lịch nhận phòng - trả phòng
 const navDate = $$('.nav-search-text[data-index="0"]');
-$$('.nav-search-calendar input').forEach((calendar, index) => {
-    calendar.onchange = function () {
-        navDate[index].querySelector('.nav-search-description').innerHTML = calendar.value;
-        navDate[index].querySelector('.nav-search-description').style.fontWeight = '700';
-    }
-})
 
 // Xuất lịch
 
@@ -87,7 +81,7 @@ getFebDays = (year) => {
     return isLeapYear(year) ? 29 : 28;
 }
 
-let calendar = document.querySelector('.calendar');
+let calendar = $('.calendar');
 
 // Generate Calendar
 
@@ -95,13 +89,13 @@ let activeDate;
 let activeDay = [];
 
 generateCalendar = (month, year) => {
-    let calendarDays = document.querySelector('.calendar-days');
+    let calendarDays = $('.calendar-days');
     let daysOfMonth = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     calendarDays.innerHTML = '';
     let currDate = new Date();
 
-    document.querySelector('#month').innerHTML = `tháng ${++month}`;
-    document.querySelector('#year').innerHTML = `năm ${year}`;
+    $('#month').innerHTML = `tháng ${++month}`;
+    $('#year').innerHTML = `năm ${year}`;
 
     --month;
     let firstDate = new Date(year, month, 1);
@@ -144,8 +138,8 @@ generateCalendar(currMonth, currYear);
 
 // Hit prev-next button
 
-const prevMonth = document.querySelector('#prev-month');
-const nextMonth = document.querySelector('#next-month');
+const prevMonth = $('#prev-month');
+const nextMonth = $('#next-month');
 
 function checkActive () {
     activeDate = $$('.calendar-days .active');
@@ -161,7 +155,6 @@ function checkActive () {
             }
             else activeDay.push(active);
         })
-        console.log(activeDay)
     }
 }
 
@@ -327,6 +320,137 @@ btnGuest.forEach(btn => {
         btn.querySelector('.nav-search-guest-plus').toggleAttribute('disabled', valueInput === valueMax);
     }
 })
+
+// Xuất lịch ở trải nghiệm - ngày
+
+let activeDay2 = [];
+
+generateCalendar2 = (month, year) => {
+    let calendarDays = $$('.calendar-days')[1];
+    let daysOfMonth = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    calendarDays.innerHTML = '';
+    let currDate = new Date();
+
+    $('#month2').innerHTML = `tháng ${++month}`;
+    $('#year2').innerHTML = `năm ${year}`;
+
+    --month;
+    let firstDate = new Date(year, month, 1);
+    let firstDay = firstDate.getDay();
+
+    for(let i = 1; i <= daysOfMonth[month] + firstDay - 1; i++) {
+        let day = document.createElement('div');
+        day.classList.add('disabled');
+        if (firstDay === 0) {
+            firstDay = 7;
+        } else
+        if (i >= firstDay) {
+            day.innerHTML = i - firstDay + 1;
+            if (year > currDate.getFullYear()) {
+                day.classList.remove('disabled');
+            }
+            if (year >= currDate.getFullYear() &&  month > currDate.getMonth()) {
+                day.classList.remove('disabled');
+            }
+            if (i - firstDay + 1 >= currDate.getDate() && year >= currDate.getFullYear() &&  month >= currDate.getMonth()) {
+                day.classList.remove('disabled');
+            }
+            if (activeDay2 !== undefined){
+                activeDay2.forEach(dayActive => {
+                    if (i - firstDay + 1 === dayActive.date && year === dayActive.year &&  month === dayActive.month) {
+                        day.classList.toggle('active', true);
+                    }
+                })
+            }
+        }
+        calendarDays.appendChild(day);
+    }
+}
+
+generateCalendar2(currMonth, currYear);
+
+// Hit prev-next button
+
+const prevMonth2 = $('#prev-month2');
+const nextMonth2 = $('#next-month2');
+
+function checkActive () {
+    activeDate = $$('.calendar-days .active');
+    if (activeDate !== null) {
+        activeDate.forEach(date => {
+            let active = {
+                'date': parseInt(date.innerHTML),
+                'month': currMonth2,
+                'year': currYear2
+            }
+            if (activeDay2.length === 2){
+                Object.assign(activeDay2[1], active);
+            }
+            else activeDay2.push(active);
+        })
+    }
+}
+
+let currMonth2 = currDate.getMonth();
+let currYear2 = currDate.getFullYear();
+
+prevMonth2.onclick = function () {
+    if (currMonth2 < 1) {
+        currMonth2 = 12;
+        --currYear2;
+    } else {
+        --currMonth2;
+    }
+    generateCalendar2(currMonth2, currYear2);
+}
+
+nextMonth2.onclick = function () {
+    if (currMonth2 > 12) {
+        currMonth2 = 1;
+        ++currYear2;
+    } else {
+        ++currMonth2;
+    }
+    generateCalendar2(currMonth2, currYear2);
+}
+
+// In ngày ở trải nghiệm/ngày
+
+let checkOutRoom2;
+
+const navExpDate = $('.nav-search-text [data-index="1"]');
+$('.nav-search-calendar-2').onclick = function (e) {
+    if (e.target.closest('.calendar-body')) {
+        if (!e.target.classList.contains('disabled')) {
+            e.target.classList.toggle('active');
+            checkActive();
+            let html1 = `${e.target.innerHTML} ${$('#month2').innerHTML}`;
+            navExpDate.querySelector('.nav-search-description').innerHTML = html1;
+            navExpDate.querySelector('.nav-search-description').style.fontWeight = '700';
+            $('.nav-search-calendar-2').onclick = function (e) {
+                if (e.target.closest('.calendar-body')) {
+                    if (!e.target.classList.contains('disabled')) {
+                        if (!e.target.classList.contains('active')) {
+                            if (checkOutRoom2 !== e.target && checkOutRoom2 !== undefined) {
+                                checkOutRoom2.classList.toggle('active', false);
+                            }
+                            e.target.classList.toggle('active');
+                            checkActive();
+                            checkOutRoom2 = e.target;
+                            let html2 = `${e.target.innerHTML} ${$('#month2').innerHTML}`;
+                            console.log(html1)
+                            console.log(html2)
+                            if (html1 !== html2) {
+                                html2 = `${html1} - ${html2}`;
+                                navExpDate.querySelector('.nav-search-description').innerHTML = html2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 // Trải nghiệm - ngày
 let htmlExpDate = [];
