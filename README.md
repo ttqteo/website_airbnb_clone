@@ -1,5 +1,4 @@
-# website_airbnb_clone
-Clone Airbnb website using HTML, CSS, Javascript 
+# Airbnb.com.vn Clone
 
 Feature:
 - Can use both 'Nơi ở' tab and 'Trải nghiệm' tab.
@@ -16,3 +15,6 @@ Feature:
 - Page 'Nhận thông tin mới nhất về biện pháp ứng phó COVID-19 của chúng tôi' available
 
 Hope you guys enjoy this website.
+
+The design belongs to ©Airbnb Inc.
+Redesign by me.
